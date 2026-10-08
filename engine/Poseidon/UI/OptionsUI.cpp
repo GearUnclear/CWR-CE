@@ -2239,6 +2239,10 @@ void StartRandomCutscene(RString world)
     {
         world = menuWorld;
     }
+    if (!WorldInstalled(world))
+    {
+        return;
+    }
 
     const ParamEntry& cls = Pars >> "CfgWorlds" >> world >> "cutscenes";
     int n = cls.GetSize();
@@ -2251,7 +2255,7 @@ void StartRandomCutscene(RString world)
     SetBaseDirectory("");
     SetMission(world, name, ResolveCutsceneAnimsSubdir(world, name));
 
-    if (!ParseIntro() && stricmp(world, menuWorld) != 0)
+    if (!ParseIntro() && stricmp(world, menuWorld) != 0 && WorldInstalled(menuWorld))
     {
         StartRandomCutscene(menuWorld);
         return;
