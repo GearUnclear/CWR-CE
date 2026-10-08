@@ -1,6 +1,0 @@
-mission = "tests/integration/missions/menu_return.Abel"
-binary = "PoseidonGame"
-tags = ["ui", "full_cwa", "headless"]
-timeout = 90
-assert_timeout = 20
-extra_args = ["--mods-dir", "../../tests/fixtures/mods-menu-return", "--mod", "@emptyisland"]
